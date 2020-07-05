@@ -1,0 +1,214 @@
+<!doctype html>
+
+<html>
+<!-- An html file to display result of simulation -->
+<head>
+    <meta charset="utf-8"></meta>
+    <title>Clinic Net</title>
+    <script src="cystoscape.js"></script>
+    <script src="https://unpkg.com/webcola/WebCola/cola.min.js"></script>
+    <script src = 'node_modules/cytoscape-cola/cytoscape-cola.js'> </script> 
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <script src = "cytograph.js"></script>
+</head>
+
+<style>
+    #cy {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0px;
+        left: 0px;
+    }
+</style>
+
+
+
+  
+
+
+<body>
+    <div id="cy"></div>
+    <!-- <script>
+    var cy = cytoscape({
+    container: document.getElementById('cy'),
+          style:[
+          {
+              selector: 'node.highlight',
+              style: {
+                  'border-color': '#000',
+                  'border-width': '2px',
+                  'color':'',
+              }
+          },
+          {
+              selector:'edge',
+              style:{
+                'target-arrow-shape':'triangle',
+                'curve-style': 'bezier',
+                'width':function(elem){return 0.002*elem.data('amount')},
+                'line-color':'blue',
+                'opacity':0.5
+                
+                
+            }
+              },
+              {
+			selector: 'node',
+		    style: {
+			'content': 'data(label)',
+              //'width':function(elem){return elem.data('width')},
+              //'height':'data(height)',
+              'font-size':'30px',
+              'label':'data(name)',
+             // 'background-color':function(elem){return elem.data('color')},
+            //   'background-color':'green',
+            //  'background-color': 'mapData(color,0,30,green,red)'
+						}
+					},
+
+                  ],
+        layout:{name:'concentric',
+          spacingFactor:20,
+          nodeSpacing:40,
+          padding:30,
+          fit:true,
+          animationDuration:1500,
+          animate:true,
+          // concentric:'concentric',
+          boundingBox: { // to give cola more space to resolve initial overlaps
+                x1: 0,
+                y1: 0,
+                x2: 10000,
+                y2: 10000
+              }
+              },        
+          elements:data
+
+// {'nodes': [{'data': {'name': 'Confucius Institute Headquarters',
+//     'label': 'CHINA',
+//     'id': '0',
+//     'value': 0}},
+//   {'data': {'name': 'Jacksonville State University',
+//     'id': '102000',
+//     'value': 102000}},
+//   {'data': {'name': 'Troy University', 'id': '104700', 'value': 104700}},
+//   {'data': {'name': 'Springer Nature Customer Service Ce',
+//     'label': 'ENGLAND',
+//     'id': '1',
+//     'value': 1}},
+//   {'data': {'name': 'University of Alabama', 'id': '105100', 'value': 105100}},
+//   {'data': {'name': 'Saudi Arabia Education Mission',
+//     'label': 'SAUDI ARABIA',
+//     'id': '2',
+//     'value': 2}},
+//   {'data': {'name': 'Kuwait-Embassy of the State',
+//     'label': 'KUWAIT',
+//     'id': '3',
+//     'value': 3}},
+//   {'data': {'name': 'Mercedes-Benz U.S. International, I',
+//     'label': 'GERMANY',
+//     'id': '4',
+//     'value': 4}},
+//   {'data': {'name': 'Kansai Gaidai University (KGU)',
+//     'label': 'JAPAN',
+//     'id': '5',
+//     'value': 5}},
+//   {'data': {'name': 'Korea Polar Research Institute - KO',
+//     'label': 'KOREA',
+//     'id': '6',
+//     'value': 6}},
+//   {'data': {'name': 'Springer Nature',
+//     'label': 'ENGLAND',
+//     'id': '7',
+//     'value': 7}},
+//   {'data': {'name': 'Turkish Consulate General,',
+//     'label': 'TURKEY',
+//     'id': '8',
+//     'value': 8}},
+//   {'data': {'name': 'Saudi Arabian Education Mission,',
+//     'label': 'SAUDI ARABIA',
+//     'id': '9',
+//     'value': 9}},
+//   {'data': {'name': 'Kuwait-Embassy Of The State',
+//     'label': 'KUWAIT',
+//     'id': '10',
+//     'value': 10}},
+//   {'data': {'name': 'Mercedes-Benz US International Inc',
+//     'label': 'GERMANY',
+//     'id': '11',
+//     'value': 11}},
+//   {'data': {'name': 'Daimler Purchasing Coordination Cor',
+//     'label': 'GERMANY',
+//     'id': '12',
+//     'value': 12}},
+//   {'data': {'name': 'Mercedes Benz US International',
+//     'label': 'GERMANY',
+//     'id': '13',
+//     'value': 13}},
+//   {'data': {'name': 'General Directorate of State Hydrua',
+//     'label': 'TURKEY',
+//     'id': '14',
+//     'value': 14}},
+//   {'data': {'name': 'Glaxo SmithKline',
+//     'label': 'ENGLAND',
+//     'id': '15',
+//     'value': 15}},
+//   {'data': {'name': 'University of Alabama at Birmingham',
+//     'id': '105200',
+//     'value': 105200}},
+//   {'data': {'name': 'Gambo', 'label': 'SWEDEN', 'id': '16', 'value': 16}},
+//   {'data': {'name': 'Incysus, LTD',
+//     'label': 'BERMUDA',
+//     'id': '17',
+//     'value': 17}},
+//   {'data': {'name': 'Astex Therapeutics Ltd',
+//     'label': 'ENGLAND',
+//     'id': '18',
+//     'value': 18}},
+//   {'data': {'name': 'Saudi Arabian Cultural Mission',
+//     'label': 'SAUDI ARABIA',
+//     'id': '19',
+//     'value': 19}},
+//   {'data': {'name': 'SpeeDx Pty Ltd',
+//     'label': 'AUSTRALIA',
+//     'id': '20',
+//     'value': 20}},
+//   {'data': {'name': 'Centre for Infectious Disease',
+//     'label': 'ZAMBIA',
+//     'id': '21',
+//     'value': 21}}],
+//  'edges': [{'data': {'count': 1,
+//     'amount': 250000,
+//     'source': 0,
+//     'target': 102000}},
+//   {'data': {'count': 1, 'amount': 463657, 'source': 0, 'target': 104700}},
+//   {'data': {'count': 1, 'amount': 3649107, 'source': 1, 'target': 105100}},
+//   {'data': {'count': 13, 'amount': 1023970, 'source': 2, 'target': 105100}},
+//   {'data': {'count': 4, 'amount': 4638099, 'source': 3, 'target': 105100}},
+//   {'data': {'count': 4, 'amount': 600, 'source': 4, 'target': 105100}},
+//   {'data': {'count': 5, 'amount': 580324, 'source': 5, 'target': 105100}},
+//   {'data': {'count': 1, 'amount': 517303, 'source': 6, 'target': 105100}},
+//   {'data': {'count': 1, 'amount': 400000, 'source': 7, 'target': 105100}},
+//   {'data': {'count': 6, 'amount': 435274, 'source': 8, 'target': 105100}},
+//   {'data': {'count': 10, 'amount': 1215438, 'source': 9, 'target': 105100}},
+//   {'data': {'count': 13, 'amount': 9462320, 'source': 10, 'target': 105100}},
+//   {'data': {'count': 1, 'amount': 1650825, 'source': 11, 'target': 105100}},
+//   {'data': {'count': 1, 'amount': 7250, 'source': 12, 'target': 105100}},
+//   {'data': {'count': 1, 'amount': 40700, 'source': 13, 'target': 105100}},
+//   {'data': {'count': 2, 'amount': 4987, 'source': 14, 'target': 105100}},
+//   {'data': {'count': 10, 'amount': 128286, 'source': 15, 'target': 105200}},
+//   {'data': {'count': 2, 'amount': 659126, 'source': 16, 'target': 105200}},
+//   {'data': {'count': 3, 'amount': 202737, 'source': 17, 'target': 105200}},
+//   {'data': {'count': 1, 'amount': 1291, 'source': 18, 'target': 105200}},
+//   {'data': {'count': 15, 'amount': 177914, 'source': 19, 'target': 105200}},
+//   {'data': {'count': 2, 'amount': 51291, 'source': 20, 'target': 105200}},
+//   {'data': {'count': 2, 'amount': 10645, 'source': 21, 'target': 105200}}]}
+
+  })
+.catch(err => {
+  console.log(err)
+});
+    </script> -->
+  
+</body>
