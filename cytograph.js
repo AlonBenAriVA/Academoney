@@ -1,6 +1,6 @@
 console.log('cytograph.js')
 
-fetch('cytograph.json').then(response => {
+fetch('https://github.com/AlonBenAriVA/Academoney/blob/master/cytograph.json').then(response => {
   
   return response.json();
 }).then(data => {
